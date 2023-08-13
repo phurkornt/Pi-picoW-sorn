@@ -1,0 +1,28 @@
+{% args led_status %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Pi pico w</title>
+    <style>
+        .button { background-color: #4CAF50; border: none; color: white; padding: 16px 40px;
+            text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}
+        .button2 {background-color: #3da1c9;}
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        {% for i in range(len(led_status)) %}
+            {% if led_status[i] == 1 %}
+                <p><a href="/{{i+1}}"><button class="button button2">Button {{i+1}} : ON</button></a></p>
+            {% endif %}
+            
+            {% if led_status[i] == 0 %}
+                <p><a href="/{{i+1}}"><button class="button ">Button {{i+1}} : OFF</button></a></p>
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>
